@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile Card</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: linear-gradient(135deg, #1e1e2e, #3a3a5a);
+            font-family: Arial, sans-serif;
+            color: #ffffff;
+        }
+        .card {
+            background: #252542;
+            padding: 20px;
+            border-radius: 12px;
+            border: 2px solid #00aaff;
+            box-shadow: 0 4px 12px rgba(0, 170, 255, 0.4);
+            text-align: center;
+            max-width: 400px;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .profile-picture {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid #ffaa00;
+            box-shadow: 0 0 10px rgba(255, 170, 0, 0.6);
+        }
+
+        h2 {
+            color: #00ccff;
+            font-size: 1.8em;
+            margin: 10px 0;
+        }
+        h4 {
+            color: #ffcc00;
+            font-size: 1.2em;
+            margin-bottom: 10px;
+        }
+        .short-bio {
+            font-size: 0.9em;
+            color: #dddddd;
+            margin: 10px 15px;
+            text-align: justify;
+        }
+        .location, .email {
+            font-size: 0.9em;
+            color: #ffffff;
+            margin: 5px 0;
+        }
+        .email a {
+            color: #00ccff;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        .email a:hover {
+            text-decoration: underline;
+            color: #ffaa00;
+        }
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin: 15px 0;
+        }
+        .social-links a {
+            color: #00ccff;
+            font-size: 1.2em;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        .social-links a:hover {
+            color: #ffaa00;
+        }
+        .utc-time {
+            font-size: 0.9em;
+            color: #ffcc00;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="card">
+        <img src="profile Picture.jpg" alt="Profile Picture" class="profile-picture" data-testid="profilePicture">
+        <h2 data-testid="fullName">Erinosho Grace</h2>
+        <h4 data-testid="jobTitle">Front-End Developer</h4>
+        <p class="short-bio" data-testid="shortBio">Passionate about creating user-friendly and accessible web experiences. Enjoys coding, problem-solving, and learning new technologies.</p>
+        <p class="location" data-testid="currentLocation">📍 Lagos, Nigeria</p>
+        <p class="email"><a href="mailto:jane.doe@example.com" data-testid="emailAddress">✉ erinoshograce@gmail.com</a></p>
+        <div class="social-links" data-testid="socialLinks">
+            <a href="https://www.linkedin.com/in/grace-e-679b61230/" target="_blank">🔗 LinkedIn</a>
+            <a href="https://github.com/simbi-lee" target="_blank">💻 GitHub</a>
+            <a href="https://x.com/lee_simbi67144" target="_blank">🐦 Twitter</a>
+        </div>
+        <p class="utc-time" data-testid="currentTimeUTC" id="utcTime"></p>
+    </div>
+    
+    <script>
+        function updateUTCTime() {
+            const now = new Date();
+            document.getElementById("utcTime").textContent = "⏰ UTC Time: " + now.toISOString().split("T")[1].split(".")[0] + " UTC";
+        }
+        updateUTCTime();
+    </script>
+</body>
+</html>
